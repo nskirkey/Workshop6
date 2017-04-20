@@ -8,7 +8,7 @@ export default class ErrorBanner extends React.Component {
       active: false,
       errors: ""
     };
-    
+
     // ASSUMPTION: There is only one ErrorBanner component ever created.
     // By assigning to 'window', this is a global function. Global functions
     // are not typically a good idea, but they can be useful for adding basic
@@ -20,7 +20,7 @@ export default class ErrorBanner extends React.Component {
       })
     };
   }
-  
+
   render() {
     return (
       <div className={"alert alert-warning " + hideElement(!this.state.active)} role="alert">
