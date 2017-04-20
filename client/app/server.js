@@ -66,6 +66,7 @@ export function getFeedData(user, cb) {
 /**
  * Adds a new status update to the database.
  */
+ /*
 export function postStatusUpdate(user, location, contents, cb) {
   // If we were implementing this for real on an actual server, we would check
   // that the user ID is correct & matches the authenticated user. But since
@@ -102,6 +103,20 @@ export function postStatusUpdate(user, location, contents, cb) {
 
   // Return the newly-posted object.
   emulateServerReturn(newStatusUpdate, cb);
+}*/
+
+/**
+ * Adds a new status update to the database.
+ */
+export function postStatusUpdate(user, location, contents, cb) {
+  sendXHR('POST', '/feeditem', {
+    userId: user,
+    location: location,
+    contents: contents
+  }, (xhr) => {
+    // Return the new status update.
+    cb(JSON.parse(xhr.responseText));
+  });
 }
 
 /**
